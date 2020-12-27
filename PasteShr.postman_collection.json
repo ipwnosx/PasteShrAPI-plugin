@@ -1,0 +1,487 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PasteShr",
+		"_postman_id": "56d4494c-6a78-dbf9-6bfd-1234dc5b2b86",
+		"description": "PasteShr API for \nhttps://codecanyon.net/item/pasteshr-text-hosting-sharing-script/23019437",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Recent Pastes",
+			"request": {
+				"url": "http://ptest.dk/api/pastes",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Recent Pastes API\n\n\n<b>Possible Good API Responses: (example)</b>\n<pre>\n<code>\n{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"title\": \"User paste\",\n            \"syntax\": \"none\",\n            \"slug\": \"U2m07ANokE\",\n            \"created_at\": \"2019-11-26 18:12:41\",\n            \"password\": null,\n            \"expire_time\": null,\n            \"views\": 3,\n            \"password_protected\": false,\n            \"url\": \"http://ptest.dk/U2m07ANokE\"\n        }\n    ],\n    \"first_page_url\": \"http://ptest.dk/api/search?page=1\",\n    \"from\": 1,\n    \"next_page_url\": null,\n    \"path\": \"http://ptest.dk/api/search\",\n    \"per_page\": \"50\",\n    \"prev_page_url\": null,\n    \"to\": 1\n}\n</code>\n</pre>"
+			},
+			"response": []
+		},
+		{
+			"name": "Trending Paste",
+			"request": {
+				"url": {
+					"raw": "http://ptest.dk/api/trending?t=year",
+					"protocol": "http",
+					"host": [
+						"ptest",
+						"dk"
+					],
+					"path": [
+						"api",
+						"trending"
+					],
+					"query": [
+						{
+							"key": "t",
+							"value": "year",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Include all the following GET parameters when you request the url:\n\n\n1. t - this parameter is to get trending paste of timeframe, today/week/month/year\n\n\n\n<b>Possible Good API Responses: (example)</b>\n<pre>\n<code>\n{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"title\": \"User paste\",\n            \"syntax\": \"none\",\n            \"slug\": \"U2m07ANokE\",\n            \"created_at\": \"2019-11-26 18:12:41\",\n            \"password\": null,\n            \"expire_time\": null,\n            \"views\": 3,\n            \"password_protected\": false,\n            \"url\": \"http://ptest.dk/U2m07ANokE\"\n        }\n    ],\n    \"first_page_url\": \"http://ptest.dk/api/search?page=1\",\n    \"from\": 1,\n    \"next_page_url\": null,\n    \"path\": \"http://ptest.dk/api/search\",\n    \"per_page\": \"50\",\n    \"prev_page_url\": null,\n    \"to\": 1\n}\n</code>\n</pre>\n\n<b>Possible Bad API Responses:</b>\n<pre>\n<code>\n{\n    \"error\": \"Bad request\"\n}\n\n\n{\n    \"error\": \"This feature is disabled\"\n}\n</code>\n</pre>"
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"request": {
+				"url": {
+					"raw": "http://ptest.dk/api/search?keyword=User",
+					"protocol": "http",
+					"host": [
+						"ptest",
+						"dk"
+					],
+					"path": [
+						"api",
+						"search"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "User",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Include all the following GET parameters when you request the url:\n\n\n1. keyword - this will be the keyword you want to search in pastes\n\n<b>Possible Good API Responses: (example)</b>\n<pre>\n<code>\n{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"title\": \"User paste\",\n            \"syntax\": \"none\",\n            \"slug\": \"U2m07ANokE\",\n            \"created_at\": \"2019-11-26 18:12:41\",\n            \"password\": null,\n            \"expire_time\": null,\n            \"views\": 3,\n            \"password_protected\": false,\n            \"url\": \"http://ptest.dk/U2m07ANokE\"\n        }\n    ],\n    \"first_page_url\": \"http://ptest.dk/api/search?page=1\",\n    \"from\": 1,\n    \"next_page_url\": null,\n    \"path\": \"http://ptest.dk/api/search\",\n    \"per_page\": \"50\",\n    \"prev_page_url\": null,\n    \"to\": 1\n}\n</code>\n</pre>\n\n<b>Possible Bad API Responses:</b>\n<pre>\n<code>\n{\n    \"error\": {\n        \"keyword\": [\n            \"The keyword must be at least 2 characters.\"\n        ]\n    }\n}\n\n\n{\n    \"error\": \"This feature is disabled\"\n}\n</code>\n</pre>"
+			},
+			"response": []
+		},
+		{
+			"name": "Archive List",
+			"request": {
+				"url": "http://ptest.dk/api/archive",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Archive List\n\n<b>Possible Good API Responses: (example)</b>\n<pre>\n<code>\n[\n    {\n        \"name\": \".properties\",\n        \"slug\": \"properties\",\n        \"url\": \"http://ptest.dk/archive/properties\"\n    },\n    {\n        \"name\": \"6502 Assembly\",\n        \"slug\": \"asm6502\",\n        \"url\": \"http://ptest.dk/archive/asm6502\"\n    },\n    {\n        \"name\": \"ABAP\",\n        \"slug\": \"abap\",\n        \"url\": \"http://ptest.dk/archive/abap\"\n    }\n]\n</code>\n</pre>\n\n<b>Possible Bad API Responses:</b>\n<pre>\n<code>\n{\n    \"error\": \"This feature is disabled\"\n}\n</code>\n</pre>"
+			},
+			"response": []
+		},
+		{
+			"name": "Archive",
+			"request": {
+				"url": "http://ptest.dk/api/archive/none",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Include Archive Syntax Slug when you request the url:\n\nhttp://ptest.dk/api/archive/{slug}\n\n<b>Possible Good API Responses: (example)</b>\n<pre>\n<code>\n{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"title\": \"User paste\",\n            \"syntax\": \"none\",\n            \"slug\": \"U2m07ANokE\",\n            \"created_at\": \"2019-11-26 18:12:41\",\n            \"password\": null,\n            \"expire_time\": null,\n            \"views\": 3,\n            \"password_protected\": false,\n            \"url\": \"http://ptest.dk/U2m07ANokE\"\n        }\n    ],\n    \"first_page_url\": \"http://ptest.dk/api/search?page=1\",\n    \"from\": 1,\n    \"next_page_url\": null,\n    \"path\": \"http://ptest.dk/api/search\",\n    \"per_page\": \"50\",\n    \"prev_page_url\": null,\n    \"to\": 1\n}\n</code>\n</pre>\n\n<b>Possible Bad API Responses:</b>\n<pre>\n<code>\n{\n    \"error\": \"This feature is disabled\"\n}\n</code>\n</pre>\n\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"url": "http://ptest.dk/api/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "admin",
+							"description": "this will be username of the account you want to login",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin123",
+							"description": "this will be password of the account you want to login",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Include all the following POST parameters when you request the url:\n\n\n1. username - this will be username of the account you want to login\n\n2. password - this will be password of the account you want to login\n\n\n\n<b>Possible Good API Responses: (example)</b>\n<pre>\n{\n    \"success\": {\n        \"message\": \"You successfully logged in\",\n        \"api_token\": \"6729ac220899f8a541f9b4570024fc24923406a3efea9106b44033deaa27a23d\",\n        \"user\": {\n            \"name\": \"admin\",\n            \"email\": \"admin@example.com\",\n            \"avatar\": \"https://placehold.it/80x80/00a65a/ffffff/&text=a\",\n            \"about\": null,\n            \"default_paste\": {\n                \"title\": \"My Awesome Paste\",\n                \"status\": \"1\",\n                \"syntax\": \"markup\",\n                \"expire\": \"N\",\n                \"password\": null,\n                \"encrypted\": 1\n            },\n            \"gp\": null,\n            \"fb\": null,\n            \"tw\": null\n        }\n    }\n}\n</code>\n</pre>\n\n<b>Possible Bad API Responses:</b>\n<pre>\n<code>\n{\n    \"error\": \"Your account is banned\"\n}\n\n{\n    \"error\": \"Invalid username or password\"\n}\n</code>\n</pre>"
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"url": "http://ptest.dk/api/logout",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 9bc9f4281910841091cbdea4c8bbe9dde817ffc0b8df897a50dc56cc24325a98",
+						"description": "Bearer {token} - token is the session key of the logged in user"
+					},
+					{
+						"key": "Accept",
+						"value": " application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Include the auth token in Authorization header of the user you want to logout\n\nBearer {token}\n\n<b>Possible Good API Responses:</b>\n<pre>\n{\n    \"success\": \"You successfully logged out\"\n}\n</code>\n</pre>\n\n<b>Possible Bad API Responses:</b>\n<pre>\n<code>\n{\n    \"message\": \"Unauthenticated.\"\n}\n</code>\n</pre>"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Paste",
+			"request": {
+				"url": "http://ptest.dk/api/pastes/Ow4auxc8HM",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "password",
+							"value": "1234",
+							"description": "password of the paste you want requesting (Optional if paste is not password protected)",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Include all the following POST parameters when you request the url:\n\n1. password - password of the paste you want requesting (Optional if paste is not password protected)\n\n\n<b>Possible Good API Responses:</b>\n<pre>\n{\n    \"success\": {\n        \"title\": \"User paste\",\n        \"slug\": \"U2m07ANokE\",\n        \"syntax\": \"U2m07ANokE\",\n        \"expire_time\": null,\n        \"status\": 1,\n        \"views\": 3,\n        \"description\": \"Hello thiaosd as dasda s\",\n        \"encrypted\": 0,\n        \"extension\": \"txt\",\n        \"created_at\": \"2019-11-26 18:12:41\",\n        \"url\": \"http://ptest.dk/U2m07ANokE\",\n        \"content\": \"Hello thiaosd as dasda s\",\n        \"user\": {\n            \"name\": \"admin\",\n            \"avatar\": \"https://placehold.it/80x80/00a65a/ffffff/&text=a\",\n            \"url\": \"http://ptest.dk/u/admin\"\n        }\n    }\n}\n</code>\n</pre>\n\n<b>Possible Bad API Responses:</b>\n<pre>\n<code>\n{\n    \"error\": \"Paste not found\"\n}\n\n{\n    \"error\": \"You are not allowed to access this paste\"\n}\n\n{\n    \"error\": \"You are not allowed to access private paste\"\n}\n\n{\n    \"error\": \"Paste is expired\"\n}\n\n{\n    \"error\": \"Invalid password\"\n}\n</code>\n</pre>\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Paste Create",
+			"request": {
+				"url": "http://ptest.dk/api/paste/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 797a51c84a75ea799ad02b0977e31a3147d2325573add6440845d33387944cfb",
+						"description": "Bearer {token} - token is the session key of the logged in user"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "content",
+							"value": "this is new paste",
+							"description": "Required - Content of your paste",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "1",
+							"description": "Required - public = 0, unlisted = 1, private = 2",
+							"type": "text"
+						},
+						{
+							"key": "expire",
+							"value": "N",
+							"description": "Optional - Never - N,10 Minutes- 10M, 1 Hour - 1H, 1 Day - 1D, 1 Week - 1W, 2 Week - 2W, 1 Month - 1M, 6 Month - 6M, 1 Year - 1Y, Self Destoy - SD",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "My Paste",
+							"description": "Optional - String, Max length 80",
+							"type": "text"
+						},
+						{
+							"key": "syntax",
+							"value": "none",
+							"description": "Optional - Valid syntax slug from given Archive List API",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"description": "Optional - String, Max length 50",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Include all the following POST parameters when you request the url:\n\n1. content - this is required parameter with minimum 1 length\n\n2. status - this is required parameter which makes paste public, unlisted or private, public = 0, unlisted = 1, private = 2\n\n3. syntax - this is optional parameter, value must be valid syntax slug from given Archive List API\n\n4. expire => this is optional parameter which makes is used to set expire time of paste, following are the values, Never - N, 10 Minutes- 10M, 1 Hour - 1H, 1 Day - 1D, 1 Week - 1W, 2 Week - 2W, 1 Month - 1M, 6 Month - 6M, 1 Year - 1Y, Self Destoy - SD\n\n5. title - this is optional parameter which sets paste title, value can be string with max length upto 80\n\n6. password - this is optional parameter which makes paste password protected, value can have max length upto 50\n\n\n<b>Possible Good API Responses:</b>\n<pre>\n{\n    \"success\": {\n        \"messages\": \"Paste successfully created\",\n        \"slug\": \"YvS0bRhQLK\",\n        \"paste_url\": \"http://ptest.dk/YvS0bRhQLK\"\n    }\n}\n</code>\n</pre>\n\n<b>Possible Bad API Responses:</b>\n<pre>\n<code>\n{\n    \"message\": \"Unauthenticated.\"\n}\n\n{\n    \"error\": {\n        \"content\": [\n            \"The Content field is required.\"\n        ],\n        \"status\": [\n            \"The Status field is required.\"\n        ]\n    }\n}\n\n{\n    \"error\": \"User pasting is currently disabled\"\n}\n\n{\n    \"error\": \"Public pasting is currently disabled please login to create a paste\"\n}\n\n{\n    \"error\": \"Max allowed content size is N kb\"\n}\n\n{\n    \"error\": \"Daily paste limit reached\"\n}\n\n{\n    \"error\": \"Please wait N minutes before making another paste\"\n}\n\n\n{\n    \"error\": \"Daily paste limit reached, Please login to increase your paste limit\"\n}\n</code>\n</pre>"
+			},
+			"response": []
+		},
+		{
+			"name": "Paste Update",
+			"request": {
+				"url": "http://ptest.dk/api/paste/update",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 34b7d4d8d2c879b4539178c3215fbff87822ad0d8aafa122293219532fc8dfe9",
+						"description": "Bearer {token} - token is the session key of the logged in user"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "slug",
+							"value": "ZvV4XBhAaK",
+							"description": "Required - Slug of your paste that you want to edit",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "<p>this is new paste</p>",
+							"description": "Required - Content of your paste",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "My Paste",
+							"description": "Optional - String, Max length 80"
+						},
+						{
+							"key": "syntax",
+							"value": "none",
+							"description": "Optional - Valid syntax slug from given Archive List API"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"description": "Optional - String, Max length 50"
+						},
+						{
+							"key": "status",
+							"value": "1",
+							"description": "Optional - public = 0, unlisted = 1, private = 2",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Include all the following POST parameters when you request the url:\n\n1. slug - this is required parameter which must be slug of your paste you want to edit\n\n2. content - this is required parameter with minimum 1 length\n\n3. status - this is optional parameter which makes paste public, unlisted or private, public = 0, unlisted = 1, private = 2\n\n4. syntax - this is optional parameter, value must be valid syntax slug from given Archive List API\n\n\n5. title - this is optional parameter which sets paste title, value can be string with max length upto 80\n\n6. password - this is optional parameter which makes paste password protected, value can have max length upto 50\n\n<b>Possible Good API Responses:</b>\n<pre>\n{\n    \"success\": {\n        \"messages\": \"Paste successfully updated\",\n        \"slug\": \"YvS0bRhQLK\",\n        \"paste_url\": \"http://ptest.dk/YvS0bRhQLK\"\n    }\n}\n</code>\n</pre>\n\n<b>Possible Bad API Responses:</b>\n<pre>\n<code>\n{\n    \"message\": \"Unauthenticated.\"\n}\n\n{\n    \"error\": \"Paste not found\"\n}\n\n{\n    \"error\": {\n        \"content\": [\n            \"The Content field is required.\"\n        ]\n    }\n}\n\n{\n    \"error\": \"User pasting is currently disabled\"\n}\n\n{\n    \"error\": \"Public pasting is currently disabled please login to create a paste\"\n}\n\n{\n    \"error\": \"Max allowed content size is N kb\"\n}\n\n{\n    \"error\": \"Daily paste limit reached\"\n}\n\n{\n    \"error\": \"Please wait N minutes before making another paste\"\n}\n\n\n{\n    \"error\": \"Daily paste limit reached, Please login to increase your paste limit\"\n}\n</code>\n</pre>\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Paste Delete",
+			"request": {
+				"url": "http://ptest.dk/api/paste/delete",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": "Bearer {token} - token is the session key of the logged in user"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "slug",
+							"value": "ZvV4XBhAaK",
+							"description": "Required - Slug of your paste that you want to delete",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Include all the following POST parameters when you request the url:\n\n1. slug - this is required parameter which must be slug of your paste you want to delete\n\n<b>Possible Good API Responses:</b>\n<pre>\n{\n    \"success\": \"Paste successfully deleted\"\n}\n</code>\n</pre>\n\n<b>Possible Bad API Responses:</b>\n<pre>\n<code>\n{\n    \"message\": \"Unauthenticated.\"\n}\n\n{\n    \"error\": \"Paste not found\"\n}\n</code>\n</pre>"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Page",
+			"request": {
+				"url": "http://ptest.dk/api/pages/about",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Include Page Slug when you request the url:\n\nhttp://ptest.dk/api/pages/{slug}\n\n<b>Possible Good API Responses: (example)</b>\n<pre>\n{\n    \"title\": \"About Us\",\n    \"content\": \"Lorem ipsum dolor si...\",\n    \"description\": \" Lorem ipsum dolor si...\"\n}\n</code>\n</pre>\n\n<b>Possible Bad API Responses:</b>\n<pre>\n<code>\n{\n    \"error\": \"Page not found\"\n}\n</code>\n</pre>"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Public Profile & Pastes",
+			"request": {
+				"url": "http://ptest.dk/api/u/admin",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Include Username when you request the url:\n\nhttp://ptest.dk/api/u/{username}\n\n<b>Possible Good API Responses: (example)</b>\n<pre>\n{\n    \"success\": {\n        \"pastes\": {\n            \"current_page\": 1,\n            \"data\": [\n                {\n                    \"title\": \"Hello world\",\n                    \"syntax\": \"none\",\n                    \"slug\": \"mgHZkPMqJu\",\n                    \"created_at\": \"2019-11-26 18:01:53\",\n                    \"password\": null,\n                    \"expire_time\": null,\n                    \"views\": 1,\n                    \"password_protected\": false,\n                    \"url\": \"http://ptest.dk/mgHZkPMqJu\"\n                }\n            ],\n            \"first_page_url\": \"http://ptest.dk/api/u/admin?page=1\",\n            \"from\": 1,\n            \"next_page_url\": null,\n            \"path\": \"http://ptest.dk/api/u/admin\",\n            \"per_page\": 20,\n            \"prev_page_url\": null,\n            \"to\": 1\n        },\n        \"user\": {\n            \"name\": \"admin\",\n            \"status\": null,\n            \"avatar\": \"https://placehold.it/80x80/00a65a/ffffff/&text=\",\n            \"about\": null,\n            \"gp\": null,\n            \"fb\": null,\n            \"tw\": null\n        }\n    }\n}\n</code>\n</pre>\n\n<b>Possible Bad API Responses:</b>\n<pre>\n<code>\n{\n    \"error\": \"User not found\"\n}\n</code>\n</pre>"
+			},
+			"response": []
+		},
+		{
+			"name": "Get My Pastes",
+			"request": {
+				"url": "http://ptest.dk/api/my-pastes",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 56d21e3066b7828419016c5b90e18b6e55f4f6d8ea57d85dedda60dfd0f4d581",
+						"description": "Bearer {token} - token is the session key of the logged in user"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get pastes of authorized user \n\n<b>Possible Good API Responses: (example)</b>\n<pre>\n{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 15,\n            \"title\": null,\n            \"slug\": \"BvIJ2Rl8Yr\",\n            \"user_id\": 1,\n            \"ip_address\": \"::1\",\n            \"content\": \"this is new paste\",\n            \"syntax\": \"none\",\n            \"expire_time\": null,\n            \"status\": 1,\n            \"views\": 0,\n            \"password\": null,\n            \"encrypted\": 0,\n            \"self_destroy\": null,\n            \"storage\": 1,\n            \"created_at\": \"2019-11-29 21:54:05\",\n            \"updated_at\": \"2019-11-29 21:54:05\",\n            \"password_protected\": false,\n            \"url\": \"http://ptest.dk/BvIJ2Rl8Yr\"\n        }\n    ],\n    \"first_page_url\": \"http://ptest.dk/api/my-pastes?page=1\",\n    \"from\": 1,\n    \"next_page_url\": null,\n    \"path\": \"http://ptest.dk/api/my-pastes\",\n    \"per_page\": \"50\",\n    \"prev_page_url\": null,\n    \"to\": 4\n}\n</code>\n</pre>\n\n<b>Possible Bad API Responses:</b>\n<pre>\n<code>\n{\n    \"message\": \"Unauthenticated.\"\n}\n</code>\n</pre>"
+			},
+			"response": []
+		},
+		{
+			"name": "Report Paste Issue",
+			"request": {
+				"url": "http://ptest.dk/api/report-issue",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 256fae02f45ccdd6671e031e9843367ee426e2ea68ba4ac5cf0c9d1b79350c87",
+						"description": "Bearer {token} - token is the session key of the logged in user"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "slug",
+							"value": "U2m07ANokE",
+							"description": "Required - Slug of your paste that you want to report",
+							"type": "text"
+						},
+						{
+							"key": "reason",
+							"value": "I do not like this paste",
+							"description": "Required - Reason to report the paste, String, Min Length 10, Max Length 1000",
+							"type": "text"
+						}
+					]
+				},
+				"description": "<b>Possible Good API Responses: (example)</b>\n<pre>\n{\n    \"success\": \"Paste successfully reported\"\n}\n</code>\n</pre>\n\n<b>Possible Bad API Responses:</b>\n<pre>\n<code>\n{\n    \"message\": \"Unauthenticated.\"\n}\n\n{\n    \"error\": \"This feature is disabled\"\n}\n</code>\n</pre>"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"url": "http://ptest.dk/api/profile",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 797a51c84a75ea799ad02b0977e31a3147d2325573add6440845d33387944cfb",
+						"description": "Bearer {token} - token is the session key of the logged in user"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get authorized user profile\n\n<b>Possible Good API Responses: (example)</b>\n<pre>\n{\n    \"success\": {\n        \"name\": \"admin\",\n        \"status\": null,\n        \"avatar\": \"https://placehold.it/80x80/00a65a/ffffff/&text=\",\n        \"about\": null,\n        \"default_paste\": {\n            \"title\": \"My Awesome Paste\",\n            \"status\": \"1\",\n            \"syntax\": \"markup\",\n            \"expire\": \"N\",\n            \"password\": null,\n            \"encrypted\": 1\n        },\n        \"gp\": null,\n        \"fb\": null,\n        \"tw\": null\n    }\n}\n</code>\n</pre>\n\n<b>Possible Bad API Responses:</b>\n<pre>\n<code>\n{\n    \"message\": \"Unauthenticated.\"\n}\n\n{\n    \"error\": \"User not found\"\n}\n</code>\n</pre>"
+			},
+			"response": []
+		}
+	]
+}
