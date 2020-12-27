@@ -1,0 +1,41 @@
+
+Basic Properties
+MD5	4661ca51becf896724e63c2b59d31883
+SHA-1	30ba6cc866d4faa1345cd8ea9efccc9da5071bfa
+SHA-256	3d0ab106b481bc9c82bd2fe9f0de9a8fe236fae89c9a6cb0b8442177d7dbaa9b
+Vhash	7fbfb2d2907dc0c80f6d3cf70c5312f3
+SSDEEP	6144:n79FnOXBkcjaFv1u9ZrqaNWXnbS6pTK2pf1rFNp+Lq:P1eUpvNsLq
+TLSH	T1C9440255D52E597FC22271BCB0050B93ECE6C38561B2F2B2EC649259E8E8C144D1BBBF
+File type	ZIP
+Magic	Zip archive data, at least v2.0 to extract
+Mozilla Archive Format (gen) (58.3%)
+TRiD	ZIP compressed archive (33.3%)
+TRiD	PrintFox/Pagefox bitmap (640x800) (8.3%)
+File size	253.62 KB (259704 bytes)
+History
+First Submission	2020-12-27 07:49:10
+Last Submission	2020-12-27 07:49:10
+Last Analysis	2020-12-27 07:49:10
+Earliest Contents Modification	2009-07-30 05:01:36
+Latest Contents Modification	2019-12-01 17:26:42
+Names
+PasteShrAPI.zip
+Bundle Info
+Contents Metadata
+Contained Files	65
+Uncompressed Size	423.36 KB
+Earliest Content Modification	2009-07-30 05:01:36
+Latest Content Modification	2019-12-01 17:26:42
+Contained Files By Type
+JPG	2
+PHP	6
+PNG	12
+DIRECTORY	20
+UNKNOWN	25
+Contained Files By Extension
+SQL	1
+JPG	2
+PHP	6
+TXT	7
+PNG	12
+CSS	13
